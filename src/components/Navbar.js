@@ -65,10 +65,11 @@ export default function Navbar() {
           <a href="#top" className="brand" aria-label={`${EVENT.name} ${EVENT.year} — home`}>
             <span className="brand__mark" aria-hidden="true">
               <Image
-                src="/logo.png"
+                src="/amity-logo.png"
                 alt="Amity University"
                 width={42}
                 height={42}
+                unoptimized
                 className="brand__logo-img"
               />
             </span>
