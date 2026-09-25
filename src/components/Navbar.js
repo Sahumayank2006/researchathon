@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import amityLogo from '@/assets/amity-logo.png';
 import { EVENT, NAV } from '@/lib/config';
 
 export default function Navbar() {
@@ -65,7 +66,7 @@ export default function Navbar() {
           <a href="#top" className="brand" aria-label={`${EVENT.name} ${EVENT.year} — home`}>
             <span className="brand__mark" aria-hidden="true">
               <Image
-                src="/amity-logo.png"
+                src={amityLogo}
                 alt="Amity University"
                 width={42}
                 height={42}

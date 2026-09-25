@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import amityLogo from '@/assets/amity-logo.png';
 import { EVENT, NAV, VENUE } from '@/lib/config';
 
 export default function Footer() {
@@ -11,7 +12,7 @@ export default function Footer() {
           <div>
             <span className="brand__mark foot__crest" aria-hidden="true">
               <Image
-                src="/amity-logo.png"
+                src={amityLogo}
                 alt="Amity University"
                 width={42}
                 height={42}
