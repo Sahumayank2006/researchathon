@@ -460,6 +460,18 @@ p {
   transform: translateX(4px);
 }
 
+/* Long labels wrap instead of pushing past a phone's edge */
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+  .btn--lg {
+    padding: 1.05rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
 /* Quiet text link with animated rule */
 .tlink {
   position: relative;
@@ -622,6 +634,24 @@ p {
   white-space: nowrap;
 }
 
+@media (max-width: 400px) {
+  .brand {
+    gap: 0.6rem;
+    min-width: 0;
+  }
+  .brand__mark {
+    width: 34px;
+    height: 34px;
+  }
+  .brand__name {
+    font-size: 0.95rem;
+  }
+  .brand__sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.14em;
+  }
+}
+
 /* -- links -- */
 .nav__links {
   display: none;
@@ -730,7 +760,7 @@ p {
   inset: 0;
   z-index: var(--z-menu);
   background: var(--ink);
-  padding: calc(var(--nav-h) + 2.5rem) var(--gutter) 2.5rem;
+  padding: 0 var(--gutter) 2.5rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -742,6 +772,52 @@ p {
 .drawer--open {
   clip-path: inset(0 0 0 0);
   pointer-events: auto;
+}
+
+/* The drawer covers the navbar, so it carries its own close button */
+.drawer__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--nav-h);
+  margin-bottom: 1.5rem;
+  background: var(--ink);
+}
+
+.drawer__title {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--on-ink);
+}
+
+.drawer__title em {
+  font-style: normal;
+  color: var(--gold-bright);
+}
+
+.drawer__close {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 200, 124, 0.45);
+  color: var(--gold-bright);
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+.drawer__close:hover,
+.drawer__close:focus-visible {
+  background: var(--gold);
+  color: #14100a;
+  transform: rotate(90deg);
 }
 
 .drawer__list {

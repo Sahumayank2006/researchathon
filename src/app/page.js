@@ -2,9 +2,11 @@ import Navbar from '@/components/Navbar';
 import Ticker from '@/components/Ticker';
 import Reveal from '@/components/Reveal';
 import BackToTop from '@/components/BackToTop';
+import SupportButton from '@/components/SupportButton';
 import Footer from '@/components/Footer';
 
 import HeroSection from '@/components/sections/HeroSection';
+import PrizesSection from '@/components/sections/PrizesSection';
 import SponsorsSection from '@/components/sections/SponsorsSection';
 import ChiefGuestSection from '@/components/sections/ChiefGuestSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -31,6 +33,7 @@ export default function Home() {
 
       <main>
         <HeroSection />
+        <PrizesSection />
         <SponsorsSection />
         <ChiefGuestSection />
         <AboutSection />
@@ -47,6 +50,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <SupportButton />
       <BackToTop />
       <Reveal />
     </>

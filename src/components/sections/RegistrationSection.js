@@ -1,4 +1,4 @@
-import { EVENT, FEES, INCLUSIONS } from '@/lib/config';
+import { EVENT, FEES, INCLUSIONS, TEAM_RULE } from '@/lib/config';
 import { IconCheck, IconCalendar, IconPin, IconUsers } from '@/components/Icons';
 
 export default function RegistrationSection() {
@@ -11,8 +11,9 @@ export default function RegistrationSection() {
             Take the seat. <span className="register__accent">Write the paper.</span>
           </h2>
           <p className="lede" data-reveal style={{ '--reveal-delay': '160ms' }}>
-            Registration is handled through the official Google Form. Fill it once
-            for your team, and bring a valid institutional ID to the venue.
+            Registration is handled on the official Amity University events page.
+            Register once for your team, and bring a valid institutional ID to the
+            venue.
           </p>
         </div>
 
@@ -32,6 +33,14 @@ export default function RegistrationSection() {
                 <p className="fee__note">{fee.note}</p>
               </article>
             ))}
+
+            <p className="fees__team" data-reveal>
+              <IconUsers width={18} height={18} />
+              <span>
+                <strong>{TEAM_RULE.headline}.</strong> The faculty member is counted
+                within the maximum of four members.
+              </span>
+            </p>
 
             <p className="fees__foot" data-reveal>
               Amity University Madhya Pradesh students pay <strong>₹200 only</strong>.
@@ -62,7 +71,7 @@ export default function RegistrationSection() {
               </span>
               <span>
                 <IconUsers width={16} height={16} />
-                Teams of 1–4
+                Teams of 1–4 · 1 faculty allowed
               </span>
             </div>
 
@@ -72,11 +81,11 @@ export default function RegistrationSection() {
               rel="noopener noreferrer"
               className="btn btn--gold btn--lg btn--block reg-panel__cta"
             >
-              Register on the Official Form
+              Register on the Official Page
               <span className="btn__arrow" aria-hidden="true">→</span>
             </a>
             <p className="reg-panel__fineprint">
-              Opens the Google Form in a new tab. Queries:{' '}
+              Opens amity.edu in a new tab. Queries:{' '}
               <a href={`mailto:${EVENT.email}`}>{EVENT.email}</a>
             </p>
           </div>

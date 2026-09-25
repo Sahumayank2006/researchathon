@@ -1,5 +1,13 @@
-import { PHASES, STANDARDS, PAPER_STRUCTURE } from '@/lib/config';
-import { IconCheck } from '@/components/Icons';
+import { EVENT, PHASES, STANDARDS, PAPER_STRUCTURE } from '@/lib/config';
+import { IconCheck, IconDownload, IconEye } from '@/components/Icons';
+
+const TEMPLATE_SPECS = [
+  'IEEE two-column conference layout',
+  'US Letter page, 10 pt Times New Roman',
+  'Title, authors & affiliations block',
+  'Abstract, keywords & numbered sections',
+  'Figure, table & IEEE reference styles',
+];
 
 export default function FormatSection() {
   return (
@@ -98,6 +106,84 @@ export default function FormatSection() {
               </li>
             ))}
           </ol>
+        </div>
+
+        {/* ---- official paper template ---- */}
+        <div className="tpl" id="template" data-reveal>
+          <div className="tpl__preview">
+            <iframe
+              className="tpl__frame"
+              src={`${EVENT.templateUrl}#toolbar=0&navpanes=0&view=FitH`}
+              title="IEEE paper template preview"
+              loading="lazy"
+            />
+
+            {/* phones rarely render PDFs inline, so they get a drawn page instead */}
+            <a
+              className="tpl__sheet"
+              href={EVENT.templateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the IEEE paper template (PDF)"
+            >
+              <span className="tpl__sheet-title" />
+              <span className="tpl__sheet-sub" />
+              <span className="tpl__sheet-authors">
+                <span />
+                <span />
+              </span>
+              <span className="tpl__sheet-cols">
+                <span className="tpl__sheet-col">
+                  <i /><i /><i /><i /><i /><b /><i /><i /><i />
+                </span>
+                <span className="tpl__sheet-col">
+                  <i /><i /><em /><i /><i /><i /><b /><i /><i />
+                </span>
+              </span>
+              <span className="tpl__sheet-tag">IEEE · PDF · 4 pages</span>
+            </a>
+          </div>
+
+          <div className="tpl__body">
+            <span className="kicker">Official Paper Template</span>
+            <h3 className="tpl__title">
+              Write in this format, <span className="serif-em">from the first line.</span>
+            </h3>
+            <p className="tpl__note">
+              Every manuscript must follow this IEEE template. Open it before the
+              sprint, keep it beside you while you draft, and you will never lose
+              marks on formatting.
+            </p>
+
+            <ul className="tpl__specs">
+              {TEMPLATE_SPECS.map((spec) => (
+                <li key={spec}>
+                  <IconCheck width={16} height={16} />
+                  {spec}
+                </li>
+              ))}
+            </ul>
+
+            <div className="tpl__actions">
+              <a
+                href={EVENT.templateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--gold"
+              >
+                <IconEye width={17} height={17} />
+                View Template
+              </a>
+              <a
+                href={EVENT.templateUrl}
+                download="Research-O-Thon-2026-IEEE-Template.pdf"
+                className="btn btn--ghost"
+              >
+                <IconDownload width={17} height={17} />
+                Download PDF
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

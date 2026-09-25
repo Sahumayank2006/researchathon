@@ -69,11 +69,25 @@ export default function CommitteeSection() {
             ))}
           </div>
 
-          <div className="patronage__rung patronage__rung--pair">
-            {patrons.map((p) => (
-              <Patron key={p.name} person={p} />
-            ))}
-          </div>
+          {patrons.length > 0 && (
+            <div className="patronage__rung patronage__rung--duo">
+              <article className="patron patron--duo">
+                <span className="patron__role">Patrons</span>
+                <div className="patron__pair">
+                  {patrons.map((p) => (
+                    <div className="patron__person" key={p.name}>
+                      <h3 className="patron__name">{p.name}</h3>
+                      <ul className="patron__titles">
+                        {p.titles.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </div>
+          )}
 
           <div className="patronage__rung patronage__rung--solo">
             {coPatrons.map((p) => (

@@ -130,3 +130,31 @@ export function IconFlask(props) {
     </svg>
   );
 }
+
+export function IconDownload(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 4v11M7 10.5l5 5 5-5" />
+      <path d="M4.5 19.5h15" />
+    </svg>
+  );
+}
+
+export function IconEye(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
+      <circle cx="12" cy="12" r="2.8" />
+    </svg>
+  );
+}
+
+export function IconMedal(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M8 3h8l-2.2 6.2M8 3l2.2 6.2" />
+      <circle cx="12" cy="15" r="5.5" />
+      <path d="m12 12.3.9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2-1.45-1.4 2-.3.9-1.8Z" />
+    </svg>
+  );
+}

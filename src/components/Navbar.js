@@ -122,6 +122,23 @@ export default function Navbar() {
         className={`drawer ${open ? 'drawer--open' : ''}`}
         aria-hidden={!open}
       >
+        <div className="drawer__head">
+          <span className="drawer__title">
+            Research-O-Thon <em>{EVENT.year}</em>
+          </span>
+          <button
+            type="button"
+            className="drawer__close"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            tabIndex={open ? 0 : -1}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+
         <ul className="drawer__list">
           {NAV.map((item, i) => (
             <li key={item.href}>

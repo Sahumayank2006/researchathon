@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Countdown from '@/components/Countdown';
-import { EVENT } from '@/lib/config';
-import { IconPin, IconCalendar } from '@/components/Icons';
+import { EVENT, PRIZE_POOL, PRIZES, inr } from '@/lib/config';
+import { IconPin, IconCalendar, IconUsers, IconTrophy, IconEye } from '@/components/Icons';
 
 export default function HeroSection() {
+  const topPrize = PRIZES.podium[0].amount;
+
   return (
     <section className="hero" id="top">
       {/* ---- backdrop ---- */}
@@ -18,82 +20,95 @@ export default function HeroSection() {
           className="hero__img"
         />
         <div className="hero__scrim" />
-        <div className="hero__grid" />
+        <div className="hero__glow hero__glow--a" />
+        <div className="hero__glow hero__glow--b" />
         <div className="hero__vignette" />
       </div>
 
       {/* ---- content ---- */}
-      <div className="hero__inner shell shell--wide">
-        <p className="hero__eyebrow">
-          <span className="hero__eyebrow-dot" aria-hidden="true" />
-          Amity School of Engineering &amp; Technology
-          <span className="hero__eyebrow-sep" aria-hidden="true">/</span>
-          In association with IEEE MP Section
+      <div className="hero__inner shell">
+        <p className="hero__badge">
+          <span className="hero__badge-dot" aria-hidden="true" />
+          Registrations Open
+          <span className="hero__badge-sep" aria-hidden="true" />
+          <span className="hero__badge-soft">In association with IEEE MP Section</span>
+        </p>
+
+        <p className="hero__presents">
+          Amity School of Engineering &amp; Technology presents
         </p>
 
         <h1 className="hero__title">
-          <span className="hero__line">
-            <span className="hero__word">Research-O-Thon</span>
-          </span>
-          <span className="hero__line hero__line--year">
+          <span className="hero__word">Research-O-Thon</span>
+          <span className="hero__year-row">
+            <span className="hero__year-rule" aria-hidden="true" />
             <span className="hero__year">{EVENT.year}</span>
-            <span className="hero__year-tag">
-              48-Hour
-              <br />
-              Research Sprint
-            </span>
+            <span className="hero__year-rule" aria-hidden="true" />
           </span>
         </h1>
 
-        <ul className="hero__meta">
-          <li className="hero__meta-item">
-            <IconPin className="hero__meta-icon" />
-            <span>
-              <span className="hero__meta-label">Location</span>
-              Amity University Madhya Pradesh, Gwalior
-            </span>
+        <p className="hero__tagline">
+          Transform your idea into an <em>IEEE research paper</em> in 48 hours.
+        </p>
+
+        <ul className="hero__chips">
+          <li className="hero__chip">
+            <IconCalendar width={17} height={17} />
+            {EVENT.dateLabel}
           </li>
-          <li className="hero__meta-item">
-            <IconCalendar className="hero__meta-icon" />
-            <span>
-              <span className="hero__meta-label">Date</span>
-              13 to 15 October 2026
-            </span>
+          <li className="hero__chip">
+            <IconPin width={17} height={17} />
+            {EVENT.locationShort}
+          </li>
+          <li className="hero__chip">
+            <IconUsers width={17} height={17} />
+            Teams of 1–4 · faculty welcome
           </li>
         </ul>
 
-        <p className="hero__lede">{EVENT.subtitle}</p>
+        <a href="#prizes" className="hero__prize">
+          <span className="hero__prize-icon" aria-hidden="true">
+            <IconTrophy width={20} height={20} />
+          </span>
+          <span className="hero__prize-text">
+            <strong>{inr(PRIZE_POOL)}</strong> in cash prizes
+            <span className="hero__prize-sub">First prize {inr(topPrize)}</span>
+          </span>
+          <span className="hero__prize-arrow" aria-hidden="true">→</span>
+        </a>
 
         <div className="hero__actions">
           <a
             href={EVENT.registerUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn--gold btn--lg"
+            className="btn btn--gold btn--lg hero__btn"
           >
             Register Now
             <span className="btn__arrow" aria-hidden="true">→</span>
           </a>
-          <a href="#format" className="btn btn--ghost-light btn--lg">
+          <a
+            href={EVENT.templateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost-light btn--lg hero__btn"
+          >
+            <IconEye width={18} height={18} />
             See the Format
           </a>
         </div>
-      </div>
 
-      {/* ---- foot rail ---- */}
-      <div className="hero__rail">
-        <div className="shell shell--wide hero__rail-inner">
-          <div className="hero__countdown">
-            <span className="hero__rail-label">Sprint begins in</span>
-            <Countdown iso={EVENT.startISO} />
-          </div>
-
-          <a href="#about" className="hero__cue" aria-label="Scroll to content">
-            <span className="hero__cue-text">Scroll</span>
-            <span className="hero__cue-line" aria-hidden="true" />
-          </a>
+        <div className="hero__timer">
+          <span className="hero__timer-label">Sprint begins in</span>
+          <Countdown iso={EVENT.startISO} />
         </div>
       </div>
+
+      <a href="#prizes" className="hero__cue" aria-label="Scroll to prizes">
+        <span className="hero__cue-mouse" aria-hidden="true">
+          <span />
+        </span>
+      </a>
     </section>
   );
 }

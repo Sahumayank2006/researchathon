@@ -21,8 +21,10 @@ export const EVENT = {
   dateShort: '13–15 Oct 2026',
   startISO: '2026-10-13T09:00:00+05:30',
 
-  registerUrl:
-    'https://docs.google.com/forms/d/e/1FAIpQLSchuKNbOQUCnhj-ydam1_olMUBqyZJ9VOr7nhdBK2eSPGHYiw/viewform?usp=publish-editor',
+  registerUrl: 'https://amity.edu/EventsPg/gwalior/TRP2026',
+
+  // The official IEEE conference template participants must follow (public/template.pdf)
+  templateUrl: '/template.pdf',
 
   email: 'dsharma@gwa.amity.edu',
 };
@@ -34,6 +36,8 @@ export const MARQUEE = [
   'Amity University Madhya Pradesh, Gwalior',
   'Amity Students — ₹200 Only',
   'Teams of 1 to 4',
+  '₹12,500 in Cash Prizes',
+  'Faculty Member Can Join Your Team',
   'IEEE Two-Column Manuscript',
   'Draft. Defend. Publish.',
   '35–50 Manuscripts Targeted',
@@ -53,7 +57,7 @@ export const SPONSOR_LOGOS = [
 export const STATS = [
   { value: 48, suffix: '', label: 'Hours of Sprint', note: 'Across three days' },
   { value: 50, prefix: '', suffix: '', label: 'Manuscripts Targeted', note: '35–50 papers generated' },
-  { value: 4, suffix: '', label: 'Members per Team', note: 'Interdisciplinary encouraged' },
+  { value: 4, suffix: '', label: 'Members per Team', note: 'One faculty member may join, counted within the 4' },
   {
     value: 200,
     prefix: '₹',
@@ -297,6 +301,29 @@ export const AWARDS = [
   },
 ];
 
+// --- Cash prizes ----------------------------------------------
+export const PRIZES = {
+  podium: [
+    { place: '1st', label: 'First Prize', amount: 5100, tier: 'gold' },
+    { place: '2nd', label: 'Second Prize', amount: 3100, tier: 'silver' },
+    { place: '3rd', label: 'Third Prize', amount: 2100, tier: 'bronze' },
+  ],
+  consolation: { count: 2, amount: 1100 },
+};
+
+export const PRIZE_POOL =
+  PRIZES.podium.reduce((sum, p) => sum + p.amount, 0) +
+  PRIZES.consolation.count * PRIZES.consolation.amount;
+
+export const inr = (n) => `₹${n.toLocaleString('en-IN')}`;
+
+// --- Team composition -----------------------------------------
+export const TEAM_RULE = {
+  max: 4,
+  headline: 'One faculty member can join your team',
+  body: 'Teams may include one faculty member alongside the students. The faculty member is counted within the maximum of four members, not in addition to it.',
+};
+
 // --- Registration --------------------------------------------
 export const FEES = [
   {
@@ -314,12 +341,12 @@ export const FEES = [
 ];
 
 export const INCLUSIONS = [
-  'Registration kit & IEEE-format starter template',
+  'Registration kit & the official IEEE paper template',
   'Mentor access through both drafting nights',
   'Prototyping bench & dataset access',
   'Plagiarism screening on your final draft',
   'Certificate of participation',
-  'Eligibility for all awards',
+  'Eligibility for ₹12,500 in cash prizes',
 ];
 
 // --- Committee (order as per the official organising list) ----
@@ -456,6 +483,14 @@ export const FAQ = [
     a: 'Teams may consist of 1 to 4 participants. You may also register individually. Interdisciplinary teams — for example, a CSE student paired with an electronics or biotech student — are encouraged.',
   },
   {
+    q: 'Can a faculty member be part of our team?',
+    a: 'Yes. One faculty member can be included in a team. The faculty member is counted within the four-member limit, so a team with a faculty member can have at most three students.',
+  },
+  {
+    q: 'What are the prizes?',
+    a: 'All prizes are cash prizes: ₹5,100 for the first prize, ₹3,100 for the second and ₹2,100 for the third, plus two consolation prizes of ₹1,100 each. Every participant also receives a certificate.',
+  },
+  {
     q: 'What exactly is the registration fee?',
     a: 'Amity University Madhya Pradesh students pay ₹200 only, on presentation of a valid student ID. Participants from other institutions pay ₹300. The fee is all-inclusive of the kit, meals, mentorship and certification.',
   },
@@ -483,7 +518,7 @@ export const NAV = [
   { href: '#tracks', label: 'Tracks' },
   { href: '#format', label: 'Format' },
   { href: '#evaluation', label: 'Evaluation' },
-  { href: '#awards', label: 'Awards' },
+  { href: '#prizes', label: 'Prizes' },
   { href: '#committee', label: 'Committee' },
   { href: '#register', label: 'Register' },
   { href: '#faq', label: 'FAQ' },

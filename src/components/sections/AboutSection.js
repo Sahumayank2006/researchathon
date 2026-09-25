@@ -11,7 +11,7 @@ const MARKS = [
   {
     icon: IconUsers,
     label: 'Teams',
-    body: 'One to four participants per team. Interdisciplinary teams are actively encouraged — a systems mind and a domain mind write a better paper together.',
+    body: 'One to four members per team. One faculty member may join a team and is counted within the four. Interdisciplinary teams are actively encouraged.',
   },
   {
     icon: IconDoc,

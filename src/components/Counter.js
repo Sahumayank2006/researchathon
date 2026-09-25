@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 /** Counts a number up once, the first time it scrolls into view. */
-export default function Counter({ value, prefix = '', suffix = '', duration = 1600 }) {
+export default function Counter({ value, prefix = '', suffix = '', duration = 1600, grouped = false }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(0);
 
@@ -45,7 +45,7 @@ export default function Counter({ value, prefix = '', suffix = '', duration = 16
   return (
     <span ref={ref}>
       {prefix}
-      {shown}
+      {grouped ? shown.toLocaleString('en-IN') : shown}
       {suffix}
     </span>
   );
